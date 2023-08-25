@@ -64,3 +64,17 @@ nav {
   background-color: blueviolet;
   color: #fff;
 }
+
+@media (min-width: 320px) and (max-width: 426px) {
+  h2 {
+    font-size: 26px;
+  }
+
+  .nav-links {
+    gap: 20px;
+  }
+
+  .main-container {
+    padding: 0 20px;
+  }
+}
