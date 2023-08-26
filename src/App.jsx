@@ -7,7 +7,7 @@ function App() {
     color,
     hex,
   }));
-  console.log(colorsArr);
+  //console.log(colorsArr);
   
   const [bgColor, setbgColor] = useState(changeColor());  
   const [displayMode, setdisplayMode] = useState('color');     
@@ -25,8 +25,17 @@ function App() {
     }
 
     const colorDisplay = document.getElementById('display');
+    const changeWhite = document.getElementById('change');
     if (colorDisplay) {
       colorDisplay.innerText = updateColorDisplay();
+    }
+    
+    if (bgColor.color === 'MidnightBlue' || bgColor.color === 'Navy' || bgColor.color === 'Black' || bgColor.color === 'Indigo' || bgColor.color === 'Blue' || bgColor.color === 'DarkBlue' || bgColor.color === 'MediumBlue') {
+      colorDisplay.style.color = '#F0F8FF';
+      changeWhite.style.color = '#F0F8FF';        
+    } else {
+      colorDisplay.style.color = '#000000';
+      changeWhite.style.color = '#000000';
     }
     }, [bgColor, displayMode]   
   );  
@@ -58,7 +67,7 @@ function App() {
       <section>
         <div className='main-container'>
         <div className='colorFlipper'>
-        <h2 className='color-text'>Background Color: <span id='display'></span></h2>
+        <h2 className='color-text' id='change'>Background Color: <span id='display'></span></h2>
           <button className='btn' onClick={handleChangeColor}>
             Change Color
           </button>
