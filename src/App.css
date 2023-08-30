@@ -24,18 +24,17 @@ nav {
   font-weight: bold;
 }
 
-.nav-links li {
-  list-style: none;
+.mode {
+  cursor: pointer;   
 }
 
-.nav-links a {
-  cursor: pointer;  
-  text-decoration: none;
-  color: #000;
+.activeMode {  
+  border-bottom: 2px solid red;
+  padding-bottom: 4px;
 }
 
 .main-container {
-  height: 100vh;
+  min-height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;

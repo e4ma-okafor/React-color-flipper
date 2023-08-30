@@ -6,8 +6,7 @@ function App() {
   const colorsArr = Object.entries(colorList).map(([color, hex]) => ({
     color,
     hex,
-  }));
-  //console.log(colorsArr);
+  }));  
   
   const [bgColor, setbgColor] = useState(changeColor());  
   const [displayMode, setdisplayMode] = useState('color');     
@@ -58,10 +57,10 @@ function App() {
       <nav>
         <div className='nav-container'>
           <h2>Color Flipper</h2>
-          <ul className='nav-links'>
-            <li><a href="#" onClick={() => handleDisplayMode('color')}>Name</a></li>
-            <li><a href="#" onClick={() => handleDisplayMode('hex')}>Hex</a></li>            
-          </ul>
+          <div className='nav-links'>
+            <h5 className={`mode ${displayMode === 'color' ? 'activeMode' : ''}`} onClick={() => handleDisplayMode('color')}>Name</h5>
+            <h5 className={`mode ${displayMode === 'hex' ? 'activeMode' : ''}`} onClick={() => handleDisplayMode('hex')}>Hex</h5>                       
+          </div>
         </div>
       </nav>
       <section>
