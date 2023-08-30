@@ -13,27 +13,12 @@ function App() {
 
   useEffect(() => {     
     document.body.style.backgroundColor = bgColor.hex;
-    document.title = `Background Color Flipper - ${bgColor.color}`;    
+    document.title = `Background Color Flipper - ${bgColor.color}`;      
     
-    const updateColorDisplay = () => {
-      if (displayMode === 'color') {
-        return bgColor.color;
-      } else if (displayMode === 'hex') {
-        return bgColor.hex.toUpperCase();
-      }
-    }
-
-    const colorDisplay = document.getElementById('display');
-    const changeWhite = document.getElementById('change');
-    if (colorDisplay) {
-      colorDisplay.innerText = updateColorDisplay();
-    }
-    
-    if (bgColor.color === 'MidnightBlue' || bgColor.color === 'Navy' || bgColor.color === 'Black' || bgColor.color === 'Indigo' || bgColor.color === 'Blue' || bgColor.color === 'DarkBlue' || bgColor.color === 'MediumBlue') {
-      colorDisplay.style.color = '#F0F8FF';
+    const changeWhite = document.getElementById('change');      
+    if (bgColor.color === 'MidnightBlue' || bgColor.color === 'Navy' || bgColor.color === 'Black' || bgColor.color === 'Indigo' || bgColor.color === 'Blue' || bgColor.color === 'DarkBlue' || bgColor.color === 'MediumBlue') {      
       changeWhite.style.color = '#F0F8FF';        
-    } else {
-      colorDisplay.style.color = '#000000';
+    } else {      
       changeWhite.style.color = '#000000';
     }
     }, [bgColor, displayMode]   
@@ -66,7 +51,9 @@ function App() {
       <section>
         <div className='main-container'>
         <div className='colorFlipper'>
-        <h2 className='color-text' id='change'>Background Color: <span id='display'></span></h2>
+        <h2 className='color-text' id='change'>Background Color: {
+          displayMode === 'color' ? bgColor.color : bgColor.hex.toUpperCase()
+        }</h2>
           <button className='btn' onClick={handleChangeColor}>
             Change Color
           </button>
